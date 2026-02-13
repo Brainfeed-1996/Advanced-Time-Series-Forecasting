@@ -1,0 +1,42 @@
+name: Time Series Forecasting CI
+
+on:
+  push:
+    paths:
+      - '**.ipynb'
+      - '**.py'
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install nbformat numpy pandas scikit-learn torch statsmodels
+    
+    - name: Validate notebooks
+      run: |
+        for notebook in *.ipynb; do
+          echo "Validating $notebook..."
+          python -c "
+import nbformat
+nb = nbformat.read('$notebook', nbformat.NO_CONVERT)
+print(f'✓ {notebook}: {len(nb.cells)} cells')
+          "
+        done
+    
+    - name: Lint
+      run: |
+        pip install flake8
+        flake8 src/ tests/ --max-line-length=100
