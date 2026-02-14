@@ -19,6 +19,7 @@ set(SOURCES
     src/federated_learning_engine.cpp
     src/anomaly_detection_engine.cpp
     src/time_series_features.cpp
+    src/reinforcement_learning.cpp
 )
 
 # Include directories
