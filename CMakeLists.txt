@@ -17,6 +17,8 @@ set(SOURCES
     src/time_series_forecaster.cpp
     src/quantum_inspired_optimizer.cpp
     src/federated_learning_engine.cpp
+    src/anomaly_detection_engine.cpp
+    src/time_series_features.cpp
 )
 
 # Include directories
