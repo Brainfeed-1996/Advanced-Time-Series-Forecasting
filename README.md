@@ -150,6 +150,11 @@ print(f"Anomalies détectées: {len(anomalies)}")
 
 ---
 
+## 🧱 Engineering maturity
+
+- Complexity tier: **Tier 2** (modular C++ prototype with CI compile gate)
+- See [ARCHITECTURE.md](ARCHITECTURE.md) for component boundaries.
+
 ## 📄 Licence
 
 MIT License - Voir [LICENSE](LICENSE) pour les détails.
